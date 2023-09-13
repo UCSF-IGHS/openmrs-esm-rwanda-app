@@ -5,12 +5,13 @@ import {
 } from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
 import {
+  createConditionalDashboardLink,
   createOHRIPatientChartSideNavLink,
   patientChartDivider_dashboardMeta,
 } from "@ohri/openmrs-esm-ohri-commons-lib";
 import { createDashboardLink } from "@openmrs/esm-patient-common-lib";
 
-const moduleName = "@ohri/openmrs-esm-rwanda";
+export const moduleName = "@ohri/openmrs-esm-rwanda";
 
 const options = {
   featureName: "esm-rwanda",
@@ -42,10 +43,39 @@ export const careAndTreatmentDashboardLink = getSyncLifecycle(
   }),
   options
 );
+
+export const childCareAndTreatmentDashboardLink = getSyncLifecycle(
+  createConditionalDashboardLink({
+    path: "child-care-and-treatment",
+    title: "Child Care And Treatment",
+    patientExpression: "calculateAge(patient.birthDate) < 18",
+    moduleName,
+  }),
+  options
+);
+
+export const adultCareAndTreatmentDashboardLink = getSyncLifecycle(
+  createConditionalDashboardLink({
+    path: "adult-care-and-treatment",
+    title: "Adult Care And Treatment",
+    patientExpression: "calculateAge(patient.birthDate) >= 18",
+    moduleName,
+  }),
+  options
+);
+
 export const careAndTreatmentDashboard = getAsyncLifecycle(
   () => import("./care-and-treatment/care-and-treatment.component"),
   {
     featureName: "care-and-treatment",
+    moduleName,
+  }
+);
+
+export const childCareAndTreatmentDashboard = getAsyncLifecycle(
+  () => import("./child-care-and-treatment/child-care-and-treatment.component"),
+  {
+    featureName: "child-care-and-treatment",
     moduleName,
   }
 );
