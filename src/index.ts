@@ -8,10 +8,7 @@ import {
   createOHRIPatientChartSideNavLink,
   patientChartDivider_dashboardMeta,
 } from "@ohri/openmrs-esm-ohri-commons-lib";
-import {
-  createDashboardGroup,
-  createDashboardLink,
-} from "@openmrs/esm-patient-common-lib";
+import { createDashboardLink } from "@openmrs/esm-patient-common-lib";
 
 const moduleName = "@ohri/openmrs-esm-rwanda";
 
@@ -31,14 +28,11 @@ export function startupApp() {
   defineConfigSchema(moduleName, configSchema);
 }
 
-// export const clinicalViewsDivider = getSyncLifecycle(
-//   createDashboardLink({
-//     path: "clinical-views",
-//     title: "Clinical Views",
-//     moduleName,
-//   }),
-//   options
-// );
+// clinical views divider
+export const clinicalViewsDivider = getSyncLifecycle(
+  createOHRIPatientChartSideNavLink({ title: "Clinical Views", moduleName }),
+  options
+);
 
 export const careAndTreatmentDashboardLink = getSyncLifecycle(
   createDashboardLink({

@@ -1,20 +1,17 @@
-import { Tile } from "@carbon/react";
 import React from "react";
+import { EmptyStateComingSoon } from "@ohri/openmrs-esm-ohri-commons-lib";
 import { useTranslation } from "react-i18next";
-// import {
-//   EmptyStateComingSoon,
-//   PatientChartProps,
-// } from "@ohri/openmrs-esm-ohri-commons-lib";
 
-const TabThree: React.FC<{
-  patientUuid: string;
-}> = ({ patientUuid }) => {
+const TabThree: React.FC<{ patientUuid: string }> = ({ patientUuid }) => {
   const { t } = useTranslation();
 
-  const headerTitle = t("tabThree", "Tab Three");
+  const title = t("tabThree", "Tab Three");
 
-  // return <EmptyStateComingSoon headerTitle={"Tab Three"} />;
-  return <Tile> Tab Three </Tile>;
+  return (
+    <>
+      <EmptyStateComingSoon displayText={title} headerTitle={title} />
+    </>
+  );
 };
 
 export default TabThree;

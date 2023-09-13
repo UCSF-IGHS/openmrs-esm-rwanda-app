@@ -9,15 +9,15 @@
   "extensions": [
     {
       "name": "clinical-views-divider",
-      "slot": "patient-chart-dashboard-slot",
       "component": "clinicalViewsDivider",
-      "order": 20
+      "slot": "patient-chart-dashboard-slot",
+      "order": 15
     },
     {
       "name": "care-and-treatment-link",
       "slot": "patient-chart-dashboard-slot",
       "component": "careAndTreatmentDashboardLink",
-      "order": 21,
+      "order": 16,
       "meta": {
         "slot": "care-and-treatment-slot",
         "columns": 1,
