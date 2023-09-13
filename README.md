@@ -1,14 +1,8 @@
-![Node.js CI](https://github.com/openmrs/openmrs-esm-rwanda/workflows/Node.js%20CI/badge.svg)
+![Node.js CI](https://github.com/UCSF-IGHS/openmrs-esm-rwanda/workflows/Node.js%20CI/badge.svg)
 
-# OpenMRS ESM Template App
+# OpenMRS ESM Rwanda
 
-This repository provides a starting point for creating your own
-[OpenMRS Microfrontend](https://wiki.openmrs.org/display/projects/OpenMRS+3.0%3A+A+Frontend+Framework+that+enables+collaboration+and+better+User+Experience).
-
-For more information, please see the
-[OpenMRS Frontend Developer Documentation](https://openmrs.github.io/openmrs-esm-core/#/).
-
-In particular, the [Setup](https://openmrs.github.io/openmrs-esm-core/#/getting_started/setup) section can help you get started developing microfrontends in general. The [Creating a microfrontend](https://openmrs.github.io/openmrs-esm-core/#/main/creating_a_microfrontend) section provides information about how to use this repository to create your own microfrontend.
+Rwanda EMR built on OpenMRS 3.x
 
 ## Running this code
 
@@ -41,6 +35,3 @@ At this point, you should be able to write your first page as a React applicatio
 
 Check out the [Medication dispensing app](https://github.com/openmrs/openmrs-esm-dispensing-app) for an example of a non-trivial app built using the Template.
 
-## Integrating it into your application
-
-Please see [Creating a Microfrontend](https://openmrs.github.io/openmrs-esm-core/#/main/creating_a_microfrontend).

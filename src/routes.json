@@ -4,27 +4,31 @@
     "fhir2": "^1.2.0",
     "webservices.rest": "^2.24.0"
   },
+  "pages": [
+  ],
   "extensions": [
     {
-      "name": "Red box",
-      "component": "redBox",
-      "slot": "Boxes"
+      "name": "clinical-views-divider",
+      "slot": "patient-chart-dashboard-slot",
+      "component": "clinicalViewsDivider",
+      "order": 20
     },
     {
-      "name": "Blue box",
-      "component": "blueBox",
-      "slot": "Boxes"
+      "name": "care-and-treatment-link",
+      "slot": "patient-chart-dashboard-slot",
+      "component": "careAndTreatmentDashboardLink",
+      "order": 21,
+      "meta": {
+        "slot": "care-and-treatment-slot",
+        "columns": 1,
+        "path": "care-and-treatment",
+        "layoutMode": "anchored"
+      }
     },
-        {
-      "name": "Brand box",
-      "component": "blueBox",
-      "slot": "Boxes"
-    }
-  ],
-  "pages": [
     {
-      "component": "root",
-      "route": "root"
+      "name": "care-and-treatment-ext",
+      "slot": "care-and-treatment-slot",
+      "component": "careAndTreatmentDashboard"
     }
   ]
 }
