@@ -14,21 +14,38 @@
       "order": 15
     },
     {
-      "name": "care-and-treatment-link",
+      "name": "adult-care-and-treatment-link",
       "slot": "patient-chart-dashboard-slot",
-      "component": "careAndTreatmentDashboardLink",
-      "order": 16,
+      "component": "adultCareAndTreatmentDashboardLink",
+      "order": 17,
       "meta": {
-        "slot": "care-and-treatment-slot",
+        "slot": "adult-care-and-treatment-slot",
         "columns": 1,
-        "path": "care-and-treatment",
+        "path": "adult-care-and-treatment",
+        "layoutMode": "anchored"
+      }
+    },
+    {
+      "name": "child-care-and-treatment-link",
+      "slot": "patient-chart-dashboard-slot",
+      "component": "childCareAndTreatmentDashboardLink",
+      "order": 18,
+      "meta": {
+        "slot": "child-care-and-treatment-slot",
+        "columns": 1,
+        "path": "child-care-and-treatment",
         "layoutMode": "anchored"
       }
     },
     {
       "name": "care-and-treatment-ext",
-      "slot": "care-and-treatment-slot",
+      "slot": "adult-care-and-treatment-slot",
       "component": "careAndTreatmentDashboard"
+    },
+    {
+      "name": "child-care-and-treatment-ext",
+      "slot": "child-care-and-treatment-slot",
+      "component": "childCareAndTreatmentDashboard"
     }
   ]
 }

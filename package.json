@@ -44,10 +44,13 @@
     "url": "https://github.com/UCSF-IGHS/openmrs-esm-rwanda/issues"
   },
   "dependencies": {
-    "@carbon/react": "^1.33.1",
+    "@carbon/react": "1.37.0",
     "dayjs": "^1.11.9",
     "lodash-es": "^4.17.21",
     "react-image-annotate": "^1.8.0"
+  },
+  "resolutions": {
+    "@carbon/react": "1.17.0"
   },
   "peerDependencies": {
     "@openmrs/esm-framework": "5.x",
