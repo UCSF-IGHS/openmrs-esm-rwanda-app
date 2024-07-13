@@ -72,7 +72,7 @@ const tableHeaders = (t) => [
   {
     id: 3,
     header: t("form", "Form name"),
-    key: "display",
+    key: "formName",
   },
   {
     id: 4,
