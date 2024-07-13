@@ -4,13 +4,12 @@ import {
   getSyncLifecycle,
 } from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
-import {
-  createOHRIPatientChartSideNavLink,
-  patientChartDivider_dashboardMeta,
-} from "@ohri/openmrs-esm-ohri-commons-lib";
+import { createOHRIPatientChartSideNavLink } from "@ohri/openmrs-esm-ohri-commons-lib";
 import { createDashboardLink } from "@openmrs/esm-patient-common-lib";
+import { dashboardMeta } from "./dashboard.meta";
+import AllEncounters from "./encounters/encounters.component";
 
-const moduleName = "@ohri/openmrs-esm-rwanda";
+const moduleName = "@ohri/openmrs-esm-rwanda-app";
 
 const options = {
   featureName: "esm-rwanda",
@@ -42,6 +41,7 @@ export const careAndTreatmentDashboardLink = getSyncLifecycle(
   }),
   options
 );
+
 export const careAndTreatmentDashboard = getAsyncLifecycle(
   () => import("./care-and-treatment/care-and-treatment.component"),
   {
@@ -49,3 +49,13 @@ export const careAndTreatmentDashboard = getAsyncLifecycle(
     moduleName,
   }
 );
+
+export const encountersDashboardLink = getSyncLifecycle(
+  createDashboardLink({
+    ...dashboardMeta,
+    moduleName,
+  }),
+  options
+);
+
+export const allEncounters = getSyncLifecycle(AllEncounters, options);
