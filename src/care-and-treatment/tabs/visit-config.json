@@ -1,0 +1,47 @@
+{
+  "menuId": "visit",
+  "cardTitle": "Visit",
+  "columns": [
+    {
+      "id": "weight",
+      "title": "Weight",
+      "encounterTypes": [
+        "visitEncounterType"
+      ],
+      "concept": "weightConcept"
+    },
+    {
+      "id": "tbScreening",
+      "title": "Tb Screening",
+      "encounterTypes": [
+        "visitEncounterType"
+      ],
+      "concept": "tbScreeningConcept"
+    },
+    {
+      "id": "contraception",
+      "title": "Contraception",
+      "encounterTypes": [
+        "visitEncounterType"
+      ],
+      "concept": "contraceptionConcept"
+    },
+    {
+      "id": "pregnant",
+      "title": "Pregnant",
+      "encounterTypes": [
+        "visitEncounterType"
+      ],
+      "concept": "pregnantConcept"
+    },
+    {
+      "id": "nextVisit",
+      "isDate": true,
+      "title": "Next Visit",
+      "encounterTypes": [
+        "visitEncounterType"
+      ],
+      "concept": "nextVisitConcept"
+    }
+  ]
+}

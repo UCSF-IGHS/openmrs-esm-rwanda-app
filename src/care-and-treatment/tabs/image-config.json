@@ -1,0 +1,23 @@
+{
+  "menuId": "opportunisticInfections",
+  "cardTitle": "Opportunistic Infections",
+  "columns": [
+    {
+      "id": "encounterDate",
+      "isDate": true,
+      "title": "Encounter Date",
+      "encounterTypes": [
+        "imageEncounterType"
+      ],
+      "concept": "encounterDate"
+    },
+    {
+      "id": "imageOrdered",
+      "title": "Image ordered",
+      "encounterTypes": [
+      "imageEncounterType"
+      ],
+      "concept": "imageOrderedConcept"
+    }
+  ]
+}

@@ -2,9 +2,12 @@ import React from "react";
 import { Tabs, Tab, TabList, TabPanels, TabPanel } from "@carbon/react";
 import styles from "../common.scss";
 import { useTranslation } from "react-i18next";
-import TabOne from "./tabs/tab-one.component";
-import TabThree from "./tabs/tab-three.component";
-import TabTwo from "./tabs/tab-two.component";
+import Problem from "./tabs/problem.component";
+import Visit from "./tabs/visit.component";
+import OI from "./tabs/oi.component";
+import Allergies from "./tabs/allergies.component";
+import Hospitalization from "./tabs/hospitalization.component";
+import Image from "./tabs/image.component";
 
 interface OverviewListProps {
   patientUuid: string;
@@ -16,19 +19,31 @@ const CareAndTreatment: React.FC<OverviewListProps> = ({ patientUuid }) => {
     <div className={styles.tabContainer}>
       <Tabs>
         <TabList contained>
-          <Tab className="tab-12rem">{t("tabOne", "Tab One")}</Tab>
-          <Tab>{t("tabTwo", "Tab Two")}</Tab>
-          <Tab>{t("tabThree", "Tab Three")}</Tab>
+          <Tab className="visit">{t("visit", "Visit")}</Tab>
+          <Tab>{t("problem", "Problem")}</Tab>
+          <Tab>{t("oi", "OI")}</Tab>
+          <Tab>{t("image", "Image")}</Tab>
+          <Tab>{t("allergies", "Allergies")}</Tab>
+          <Tab>{t("hospitalization", "Hospitalization")}</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
-            <TabOne patientUuid={patientUuid} />
+            <Visit patientUuid={patientUuid} />
           </TabPanel>
           <TabPanel>
-            <TabTwo patientUuid={patientUuid} />
+            <Problem patientUuid={patientUuid} />
           </TabPanel>
           <TabPanel>
-            <TabThree patientUuid={patientUuid} />
+            <OI patientUuid={patientUuid} />
+          </TabPanel>
+          <TabPanel>
+            <Image patientUuid={patientUuid} />
+          </TabPanel>
+          <TabPanel>
+            <Allergies patientUuid={patientUuid} />
+          </TabPanel>
+          <TabPanel>
+            <Hospitalization patientUuid={patientUuid} />
           </TabPanel>
         </TabPanels>
       </Tabs>
