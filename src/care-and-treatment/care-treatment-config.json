@@ -1,0 +1,193 @@
+{
+  "menuId": "careAndTreatment",
+  "cardDefinitions": [
+    {
+      "cardId": "visit",
+      "cardTitle": "Visit",
+      "columns": [
+        {
+          "id": "weight",
+          "title": "Weight",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "weightConcept"
+        },
+        {
+          "id": "tbScreening",
+          "title": "Tb Screening",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "tbScreeningConcept"
+        },
+        {
+          "id": "contraception",
+          "title": "Contraception",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "contraceptionConcept"
+        },
+        {
+          "id": "pregnant",
+          "title": "Pregnant",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "pregnantConcept"
+        },
+        {
+          "id": "nextVisit",
+          "isDate": true,
+          "title": "Next Visit",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "nextVisitConcept"
+        }
+      ]
+    },
+    {
+      "cardId": "opportunisticInfections",
+      "cardTitle": "Opportunistic Infections",
+      "columns": [
+        {
+          "id": "encounterDate",
+          "isDate": true,
+          "title": "Encounter Date",
+          "encounterTypes": [
+            "oiEncounterType"
+          ],
+          "concept": "encounterDate"
+        },
+        {
+          "id": "chronicCareDx",
+          "title": "Suspected Drug",
+          "encounterTypes": [
+            "oiEncounterType"
+          ],
+          "concept": "chronicCareDxConcept"
+        },
+        {
+          "id": "whoStage",
+          "title": "WHO Stage",
+          "encounterTypes": [
+            "oiEncounterType"
+          ],
+          "concept": "whoStageConcept"
+        },
+        {
+          "id": "criteria",
+          "title": "Criteria",
+          "encounterTypes": [
+            "oiEncounterType"
+          ],
+          "concept": "criteriaConcept"
+        }
+      ]
+    },
+    {
+      "cardId": "image",
+      "cardTitle": "Image",
+      "columns": [
+        {
+          "id": "encounterDate",
+          "isDate": true,
+          "title": "Encounter Date",
+          "encounterTypes": [
+            "imageEncounterType"
+          ],
+          "concept": "encounterDate"
+        },
+        {
+          "id": "imageOrdered",
+          "title": "Image ordered",
+          "encounterTypes": [
+          "imageEncounterType"
+          ],
+          "concept": "imageOrderedConcept"
+        }
+      ]
+    },
+    {
+      "cardId": "allergies",
+      "cardTitle": "Allergies",
+      "columns": [
+        {
+          "id": "encounterDate",
+          "isDate": true,
+          "title": "Encounter Date",
+          "encounterTypes": [
+            "allergyEncounterType"
+          ],
+          "concept": "encounterDate"
+        },
+        {
+          "id": "suspectedDrug",
+          "title": "Suspected Drug",
+          "encounterTypes": [
+            "allergyEncounterType"
+          ],
+          "concept": "suspectedDrugConcept"
+        },
+
+        {
+          "id": "drugEffect",
+          "title": "Drug Effect",
+          "encounterTypes": [
+            "allergyEncounterType"
+          ],
+          "concept": "drugEffectConcept"
+        },
+        {
+          "id": "actionTaken",
+          "title": "Action Taken",
+          "encounterTypes": [
+            "allergyEncounterType"
+          ],
+          "concept": "actionTakenConcept"
+        }
+      ]
+    },
+    {
+      "cardId": "hospitalization",
+      "cardTitle": "Hospitalization",
+      "columns": [
+        {
+          "id": "encounterDate",
+          "isDate": true,
+          "title": "Encounter Date",
+          "encounterTypes": [
+            "hospitalizationEncounterType"
+          ],
+          "concept": "encounterDate"
+        },
+        {
+          "id": "reasonForHospitalization",
+          "title": "Reason For Hospitalization",
+          "encounterTypes": [
+            "hospitalizationEncounterType"
+          ],
+          "concept": "reasonForHospitalizationConcept"
+        },
+        {
+          "id": "duration",
+          "title": "Duration",
+          "encounterTypes": [
+            "hospitalizationEncounterType"
+          ],
+          "concept": "durationConcept"
+        },
+        {
+          "id": "durationUnit",
+          "title": "Duration Unit",
+          "encounterTypes": [
+            "hospitalizationEncounterType"
+          ],
+          "concept": "durationUnitConcept"
+        }
+      ]
+    }
+  ]
+}
