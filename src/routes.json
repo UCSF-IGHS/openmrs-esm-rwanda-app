@@ -34,21 +34,41 @@
       "order": 13
     },
     {
-      "name": "care-and-treatment-link",
+      "name": "hiv-program",
       "slot": "patient-chart-dashboard-slot",
-      "component": "careAndTreatmentDashboardLink",
-      "order": 16,
+      "component": "hivPatientChartDashboard"
+    },
+    {
+      "name": "hiv-patient-summary",
+      "slot": "hiv-patient-chart-slot",
+      "component": "hivPatientSummaryDashboardLink",
       "meta": {
-        "slot": "care-and-treatment-slot",
+        "slot": "hiv-patient-summary-slot",
         "columns": 1,
-        "path": "care-and-treatment",
+        "path": "hiv-patient-summary",
         "layoutMode": "anchored"
       }
     },
     {
-      "name": "care-and-treatment-ext",
-      "slot": "care-and-treatment-slot",
-      "component": "careAndTreatmentDashboard"
+      "name": "hiv-patient-summary-ext",
+      "slot": "hiv-patient-summary-slot",
+      "component": "hivPatientSummary"
+    },
+    {
+      "name": "hiv-patient-program",
+      "slot": "hiv-patient-chart-slot",
+      "component": "hivProgramManagementDashboardLink",
+      "meta": {
+        "slot": "hiv-patient-program-management-slot",
+        "columns": 1,
+        "path": "hiv-program-management",
+        "layoutMode": "anchored"
+      }
+    },
+    {
+      "name": "hiv-patient-program-ext",
+      "slot": "hiv-patient-program-management-slot",
+      "component": "hivProgramManagementSummary"
     }
   ]
 }
