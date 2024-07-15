@@ -34,21 +34,20 @@ const EncounterObservations: React.FC<EncounterObservationsProps> = ({
           return !obsConceptUuidsToHide.includes(obs?.concept?.uuid);
         })
       : observations;
-
     return (
       <div className={styles.observation}>
         {filteredObservations?.map((obs, index) => {
-          if (obs?.groupMembers) {
+          if (obs.groupMembers) {
             return (
               <React.Fragment key={index}>
                 <span className={styles.parentConcept}>
-                  {obs?.concept?.display}
+                  {obs.concept.display}
                 </span>
                 <span />
                 {obs.groupMembers.map((member) => (
                   <React.Fragment key={index}>
                     <span className={styles.childConcept}>
-                      {member?.concept?.display}
+                      {member.concept.display}
                     </span>
                     <span>{getAnswerFromDisplay(member.display)}</span>
                   </React.Fragment>
@@ -58,7 +57,7 @@ const EncounterObservations: React.FC<EncounterObservationsProps> = ({
           } else {
             return (
               <React.Fragment key={index}>
-                <span>{obs?.concept?.display || obs.display}</span>
+                <span>{obs.concept.display}</span>
                 <span>{getAnswerFromDisplay(obs.display)}</span>
               </React.Fragment>
             );
