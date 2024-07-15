@@ -1,0 +1,113 @@
+{
+  "menuId": "careAndTreatment",
+  "cardDefinitions": [
+    {
+      "cardId": "treatment",
+      "cardTitle": "Treatment",
+      "columns": [
+        {
+          "id": "artCohort",
+          "title": "ART Cohort",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "artCohortConcept"
+        },
+        {
+          "id": "currentRegimen",
+          "title": "Current Regimen",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "currentRegimenConcept"
+        },
+        {
+          "id": "dsdModel",
+          "title": "DSD Model",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "dsdModelConcept"
+        },
+        {
+          "id": "populationType",
+          "title": "Population Type",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "populationTypeConcept"
+        }
+      ]
+    },
+    {
+      "cardId": "hivMonitoring",
+      "cardTitle": "Hiv Monitoring",
+      "columns": [
+        {
+          "id": "viralLoad",
+          "title": "Viral Load",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "viralLoadConcept"
+        },
+        {
+          "id": "vlReason",
+          "title": "Reason For Current VL",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "vlReasonConcept"
+        },
+        {
+          "id": "lastCd4Count",
+          "title": "Last Cd4 Count",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "lastCd4CountConcept"
+        }
+      ]
+    },
+    {
+      "cardId": "previousVisit",
+      "cardTitle": "Previous Visit",
+      "columns": [
+        {
+          "id": "tbScreening",
+          "title": "Tb Screening",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "tbScreeningConcept"
+        },
+        {
+          "id": "oi",
+          "title": "Opportunistic Infections",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "oiConcept"
+        },
+        {
+          "id": "nextVisit",
+          "isDate": true,
+          "title": "Next Visit",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "nextVisitConcept"
+        },
+        {
+          "id": "programStatus",
+          "title": "Program Status",
+          "encounterTypes": [
+            "visitEncounterType"
+          ],
+          "concept": "programStatusConcept"
+        }
+      ]
+    }
+  ]
+}
+  
