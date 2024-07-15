@@ -107,6 +107,12 @@ export function useEncounters(patientUuid: string) {
   };
 }
 
+export const encounterRepresentation =
+  "custom:(uuid,encounterDatetime,encounterType,location:(uuid,name)," +
+  "patient:(uuid,display,age,person),encounterProviders:(uuid,display,provider:(uuid,name))," +
+  "obs:(uuid,display,obsDatetime,voided,groupMembers,concept:(uuid,display:(uuid,display)),value:(uuid,name:(uuid,name)," +
+  "names:(uuid,conceptNameType,name))),form:(uuid,name,display))";
+
 export function useInfiniteEncounters(patientUuid: string) {
   const [stopFetching, setStopFetching] = useState(false);
   const getKey = (pageIndex, previousPageData) => {
@@ -123,7 +129,7 @@ export function useInfiniteEncounters(patientUuid: string) {
       return null;
     }
 
-    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=default&limit=${pageSize}`;
+    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=${encounterRepresentation}&limit=${pageSize}`;
 
     if (pageIndex) {
       url += `&startIndex=${pageIndex * pageSize}`;
