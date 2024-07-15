@@ -1,14 +1,19 @@
-import {
-  getAsyncLifecycle,
-  defineConfigSchema,
-  getSyncLifecycle,
-} from "@openmrs/esm-framework";
+import { defineConfigSchema, getSyncLifecycle } from "@openmrs/esm-framework";
 import { configSchema } from "./config-schema";
 import { createOHRIPatientChartSideNavLink } from "@ohri/openmrs-esm-ohri-commons-lib";
-import { createDashboardLink } from "@openmrs/esm-patient-common-lib";
-import { dashboardMeta } from "./dashboard.meta";
+import {
+  createDashboardGroup,
+  createDashboardLink,
+} from "@openmrs/esm-patient-common-lib";
+import {
+  dashboardMeta,
+  hivPatientChartMeta,
+  hivPatientProgramDashboardMeta,
+  hivPatientSummaryDashboardMeta,
+} from "./dashboard.meta";
 import AllEncounters from "./encounters/encounters.component";
-
+import PatientSummary from "./patient-summary/patient-summary.component";
+import CareAndTreatment from "./care-and-treatment/care-and-treatment.component";
 const moduleName = "@ohri/openmrs-esm-rwanda-app";
 
 const options = {
@@ -33,23 +38,6 @@ export const clinicalViewsDivider = getSyncLifecycle(
   options
 );
 
-export const careAndTreatmentDashboardLink = getSyncLifecycle(
-  createDashboardLink({
-    path: "care-and-treatment",
-    title: "Care And Treatment",
-    moduleName,
-  }),
-  options
-);
-
-export const careAndTreatmentDashboard = getAsyncLifecycle(
-  () => import("./care-and-treatment/care-and-treatment.component"),
-  {
-    featureName: "care-and-treatment",
-    moduleName,
-  }
-);
-
 export const encountersDashboardLink = getSyncLifecycle(
   createDashboardLink({
     ...dashboardMeta,
@@ -59,3 +47,25 @@ export const encountersDashboardLink = getSyncLifecycle(
 );
 
 export const allEncounters = getSyncLifecycle(AllEncounters, options);
+
+export const hivPatientChartDashboard = getSyncLifecycle(
+  createDashboardGroup(hivPatientChartMeta),
+  options
+);
+
+export const hivPatientSummary = getSyncLifecycle(PatientSummary, options);
+
+export const hivPatientSummaryDashboardLink = getSyncLifecycle(
+  createDashboardLink({ ...hivPatientSummaryDashboardMeta, moduleName }),
+  options
+);
+
+export const hivProgramManagementDashboardLink = getSyncLifecycle(
+  createDashboardLink({ ...hivPatientProgramDashboardMeta, moduleName }),
+  options
+);
+
+export const hivProgramManagementSummary = getSyncLifecycle(
+  CareAndTreatment,
+  options
+);
