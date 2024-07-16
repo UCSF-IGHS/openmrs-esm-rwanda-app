@@ -126,7 +126,7 @@ export function useInfiniteEncounters(patientUuid: string) {
       return null;
     }
 
-    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=${encounterRepresentation}&limit=${pageSize}&totalCount=true`;
+    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=${encounterRepresentation}&order=desc&limit=${pageSize}`;
 
     if (pageIndex) {
       url += `&startIndex=${pageIndex * pageSize}`;
