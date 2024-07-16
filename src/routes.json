@@ -69,6 +69,13 @@
       "name": "hiv-patient-program-ext",
       "slot": "hiv-patient-program-management-slot",
       "component": "hivProgramManagementSummary"
+    },
+    {
+      "name": "version-two-link",
+      "slot": "app-menu-slot",
+      "component": "versionTwoNavLink",
+      "online": true,
+      "offline": true
     }
   ]
 }
