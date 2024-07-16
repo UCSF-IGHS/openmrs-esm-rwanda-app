@@ -25,7 +25,6 @@ import {
 } from "@carbon/react";
 import {
   useLayoutType,
-  usePagination,
   isDesktop,
   showSnackbar,
   showModal,
@@ -33,7 +32,6 @@ import {
 import {
   ErrorState,
   EmptyState,
-  PatientChartPagination,
   launchPatientWorkspace,
 } from "@openmrs/esm-patient-common-lib";
 
@@ -89,7 +87,6 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
     useInfiniteEncounters(patientUuid);
   const mappedEncounters = encounters?.map(transformToMappedEncounter);
 
-  const encountersCount = 10;
   const encounterTypes = [
     ...new Set(mappedEncounters?.map((encounter) => encounter.encounterType)),
   ]?.sort();
@@ -117,12 +114,6 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
 
     return filtered;
   }, [filter, searchTerm, mappedEncounters]);
-
-  const {
-    results: paginatedEncounters,
-    goTo,
-    currentPage,
-  } = usePagination(filteredRows ?? [], encountersCount);
 
   const isTablet = useLayoutType() === "tablet";
 
@@ -204,7 +195,7 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
   return (
     <DataTable
       headers={tableHeaders(t)}
-      rows={paginatedEncounters}
+      rows={filteredRows}
       overflowMenuOnHover={!isTablet}
       size={isTablet ? "lg" : "xs"}
       useZebraStyles={encounters?.length > 1 ? true : false}
@@ -268,7 +259,7 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
               </TableHead>
               <TableBody>
                 {rows.map((row) => {
-                  const selectedEncounter = paginatedEncounters.find(
+                  const selectedEncounter = filteredRows.find(
                     (encounter) => encounter.uuid === row.id
                   );
                   return (
@@ -399,14 +390,6 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
               </Tile>
             </div>
           ) : null}
-
-          <PatientChartPagination
-            currentItems={paginatedEncounters.length}
-            onPageNumberChange={({ page }) => goTo(page)}
-            pageNumber={currentPage}
-            pageSize={encountersCount}
-            totalItems={encounters.length}
-          />
         </>
       )}
     </DataTable>

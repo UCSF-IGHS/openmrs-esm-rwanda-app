@@ -116,7 +116,7 @@ export const encounterRepresentation =
 export function useInfiniteEncounters(patientUuid: string) {
   const [stopFetching, setStopFetching] = useState(false);
   const getKey = (pageIndex, previousPageData) => {
-    const pageSize = 100;
+    const pageSize = 10;
 
     if (stopFetching) {
       return null; // Stop fetching if the error has occurred
@@ -129,7 +129,7 @@ export function useInfiniteEncounters(patientUuid: string) {
       return null;
     }
 
-    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=${encounterRepresentation}&limit=${pageSize}`;
+    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=${encounterRepresentation}&limit=${pageSize}&totalCount=true`;
 
     if (pageIndex) {
       url += `&startIndex=${pageIndex * pageSize}`;
