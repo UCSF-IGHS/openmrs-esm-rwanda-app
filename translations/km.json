@@ -4,7 +4,7 @@
   "connect": "ភ្ជាប់",
   "connectExplainer": "ទាក់ទងជាមួយសហគមន៍",
   "dataFetching": "ការទាញយកទិន្នន័យ",
-  "dateAndTime": "ពេល​ណាត់ជួប",
+  "dateAndTime": "ពេល\u200bណាត់ជួប",
   "deleteThisEncounter": "លុបការជួបនេះ។",
   "designDocs": "ឯកសាររចនា",
   "designDocsExplainer": "អានឯកសាររចនា O3",
@@ -30,9 +30,6 @@
   "resources": "ធនធាន",
   "searchThisList": "ស្វែងរកបញ្ជីនេះ។",
   "successfullyDeleted": "បានលុបដោយជោគជ័យ",
-  "tabOne": "ផ្ទាំងមួយ។",
-  "tabThree": "ផ្ទាំងទីបី",
-  "tabTwo": "ផ្ទាំងពីរ",
   "usefulLinks": "ខាងក្រោមនេះគឺជាតំណភ្ជាប់មួយចំនួនទៅកាន់ធនធានដែលមានប្រយោជន៍",
   "viewThisEncounter": "មើលការជួបនេះ។"
 }
