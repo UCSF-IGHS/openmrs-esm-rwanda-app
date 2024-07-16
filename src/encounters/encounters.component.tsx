@@ -361,7 +361,7 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
                           colSpan={headers.length + 2}
                         >
                           <EncounterObservations
-                            observations={selectedEncounter?.obs}
+                            encounterUuid={selectedEncounter?.uuid}
                           />
                         </TableExpandedRow>
                       ) : (
