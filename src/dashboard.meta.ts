@@ -22,7 +22,7 @@ export const hivPatientSummaryDashboardMeta = {
 export const hivPatientProgramDashboardMeta = {
   slot: "hiv-patient-summary-slot",
   columns: 1,
-  title: "Program Management",
+  title: "Clinical Encounter",
   path: "hiv-program-management",
   layoutMode: "anchored",
 };
