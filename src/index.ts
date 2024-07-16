@@ -14,6 +14,8 @@ import {
 import AllEncounters from "./encounters/encounters.component";
 import PatientSummary from "./patient-summary/patient-summary.component";
 import CareAndTreatment from "./care-and-treatment/care-and-treatment.component";
+import versionTwoNavigationButton from "./app-menu-navigation/app-menu-navigation";
+
 const moduleName = "@ohri/openmrs-esm-rwanda-app";
 
 const options = {
@@ -67,5 +69,10 @@ export const hivProgramManagementDashboardLink = getSyncLifecycle(
 
 export const hivProgramManagementSummary = getSyncLifecycle(
   CareAndTreatment,
+  options
+);
+
+export const versionTwoNavLink = getSyncLifecycle(
+  versionTwoNavigationButton,
   options
 );
