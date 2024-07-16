@@ -13,3 +13,15 @@
 .explainer {
   margin-bottom: 2rem;
 }
+
+.productiveHeading01 {
+  @include type.type-style("heading-compact-01");
+}
+
+.productiveHeading02 {
+  @include type.type-style("heading-compact-02");
+}
+
+.productiveHeading03 {
+  @include type.type-style("heading-03");
+}

@@ -6,6 +6,8 @@ import {
   getSummaryCardProps,
   SummaryCard,
 } from "@ohri/openmrs-esm-ohri-commons-lib";
+import { Tile } from "@carbon/react";
+import { CardHeader } from "@openmrs/esm-patient-common-lib";
 
 interface PatientSummaryProps {
   patientUuid: string;
@@ -17,13 +19,18 @@ const PatientSummary: React.FC<PatientSummaryProps> = ({ patientUuid }) => {
 
   return (
     <div className={styles.tabContainer}>
-      {cards.map((cardContent) => (
-        <SummaryCard
-          key={cardContent.cardId}
-          headerTitle={cardContent.cardTitle}
-          patientUuid={patientUuid}
-          columns={getSummaryCardProps(cardContent, config)}
-        />
+      {cards.map((card) => (
+        <Tile key={card.cardId} className={styles.tile}>
+          <CardHeader title={card.cardTitle}> </CardHeader>
+          <div className={styles.tileBox}>
+            {card.columns.map((column) => (
+              <div key={column.id} className={styles.tileBoxColumn}>
+                <span className={styles.tileTitle}>{column.title}</span>
+                <span className={styles.tileValue}>{column.concept}</span>
+              </div>
+            ))}
+          </div>
+        </Tile>
       ))}
     </div>
   );
