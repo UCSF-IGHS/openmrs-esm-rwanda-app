@@ -1,9 +1,10 @@
 {
   "menuId": "careAndTreatment",
-  "cardDefinitions": [
+  "tabDefinitions": [
     {
-      "cardId": "visit",
-      "cardTitle": "Visit",
+      "tabName": "New Visit",
+      "headerTitle": "New Visit",
+      "displayText": "New Visit",
       "columns": [
         {
           "id": "weight",
@@ -45,12 +46,41 @@
             "visitEncounterType"
           ],
           "concept": "nextVisitConcept"
+        },
+        {
+          "id": "actions",
+          "title": "Actions",
+          "actionOptions": [
+            {
+              "formName": "visitFormName",
+              "package": "care-treatment",
+              "label": "View Details",
+              "mode": "view"
+            },
+            {
+              "formName": "visitFormName",
+              "package": "care-treatment",
+              "label": "Edit Form",
+              "mode": "edit"
+            }
+          ]
+        }
+      ],
+      "launchOptions": {
+        "displayText": "Add",
+        "moduleName": "@ohri/openmrs-esm-rwanda-app"
+      },
+      "formList": [
+        {
+          "name": "visitFormName",
+          "uuid": "visitFormUuid"
         }
       ]
     },
     {
-      "cardId": "opportunisticInfections",
-      "cardTitle": "Opportunistic Infections",
+      "tabName": "Opportunistic Infections",
+      "headerTitle": "Opportunistic Infections",
+      "displayText": "Opportunistic Infections",
       "columns": [
         {
           "id": "encounterDate",
@@ -84,75 +114,41 @@
             "oiEncounterType"
           ],
           "concept": "criteriaConcept"
+        },
+        {
+          "id": "actions",
+          "title": "Actions",
+          "actionOptions": [
+            {
+              "formName": "oiFormName",
+              "package": "care-treatment",
+              "label": "View Details",
+              "mode": "view"
+            },
+            {
+              "formName": "oiFormName",
+              "package": "care-treatment",
+              "label": "Edit Form",
+              "mode": "edit"
+            }
+          ]
+        }
+      ],
+      "launchOptions": {
+        "displayText": "Add",
+        "moduleName": "@ohri/openmrs-esm-rwanda-app"
+      },
+      "formList": [
+        {
+          "name": "oiFormName",
+          "uuid": "oiFormUuid"
         }
       ]
     },
     {
-      "cardId": "image",
-      "cardTitle": "Image",
-      "columns": [
-        {
-          "id": "encounterDate",
-          "isDate": true,
-          "title": "Encounter Date",
-          "encounterTypes": [
-            "imageEncounterType"
-          ],
-          "concept": "encounterDate"
-        },
-        {
-          "id": "imageOrdered",
-          "title": "Image ordered",
-          "encounterTypes": [
-          "imageEncounterType"
-          ],
-          "concept": "imageOrderedConcept"
-        }
-      ]
-    },
-    {
-      "cardId": "allergies",
-      "cardTitle": "Allergies",
-      "columns": [
-        {
-          "id": "encounterDate",
-          "isDate": true,
-          "title": "Encounter Date",
-          "encounterTypes": [
-            "allergyEncounterType"
-          ],
-          "concept": "encounterDate"
-        },
-        {
-          "id": "suspectedDrug",
-          "title": "Suspected Drug",
-          "encounterTypes": [
-            "allergyEncounterType"
-          ],
-          "concept": "suspectedDrugConcept"
-        },
-
-        {
-          "id": "drugEffect",
-          "title": "Drug Effect",
-          "encounterTypes": [
-            "allergyEncounterType"
-          ],
-          "concept": "drugEffectConcept"
-        },
-        {
-          "id": "actionTaken",
-          "title": "Action Taken",
-          "encounterTypes": [
-            "allergyEncounterType"
-          ],
-          "concept": "actionTakenConcept"
-        }
-      ]
-    },
-    {
-      "cardId": "hospitalization",
-      "cardTitle": "Hospitalization",
+      "tabName": "Hospitalization",
+      "headerTitle": "Hospitalization",
+      "displayText": "Hospitalization",
       "columns": [
         {
           "id": "encounterDate",
@@ -186,6 +182,34 @@
             "hospitalizationEncounterType"
           ],
           "concept": "durationUnitConcept"
+        },
+        {
+          "id": "actions",
+          "title": "Actions",
+          "actionOptions": [
+            {
+              "formName": "hospitalizationFormName",
+              "package": "care-treatment",
+              "label": "View Details",
+              "mode": "view"
+            },
+            {
+              "formName": "hospitalizationFormName",
+              "package": "care-treatment",
+              "label": "Edit Form",
+              "mode": "edit"
+            }
+          ]
+        }
+      ],
+      "launchOptions": {
+        "displayText": "Add",
+        "moduleName": "@ohri/openmrs-esm-rwanda-app"
+      },
+      "formList": [
+        {
+          "name": "hospitalizationFormName",
+          "uuid": "hospitalizationFormUuid"
         }
       ]
     }
