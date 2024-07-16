@@ -5,6 +5,7 @@
       "tabName": "New Visit",
       "headerTitle": "New Visit",
       "displayText": "New Visit",
+      "encounterType": "visitEncounterType",
       "columns": [
         {
           "id": "weight",
@@ -81,6 +82,7 @@
       "tabName": "Opportunistic Infections",
       "headerTitle": "Opportunistic Infections",
       "displayText": "Opportunistic Infections",
+      "encounterType": "oiEncounterType",
       "columns": [
         {
           "id": "encounterDate",
@@ -149,6 +151,7 @@
       "tabName": "Hospitalization",
       "headerTitle": "Hospitalization",
       "displayText": "Hospitalization",
+      "encounterType": "hospitalizationEncounterType",
       "columns": [
         {
           "id": "encounterDate",

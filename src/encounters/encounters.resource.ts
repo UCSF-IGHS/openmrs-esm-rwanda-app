@@ -78,13 +78,16 @@ export interface Observation {
   value: unknown;
   obsDatetime?: string;
 }
+export const encounterRepresentation =
+  "custom:(uuid,encounterDatetime,encounterType,encounterProviders:(uuid,provider:(name))," +
+  "form:(uuid,name,display))";
 
 export function useEncounters(patientUuid: string) {
   const endpointUrl = `${restBaseUrl}/encounter`;
   const params = {
     patient: patientUuid,
-    v: "default",
-    limit: "100",
+    v: encounterRepresentation,
+    totalCount: true,
   };
   const fullRequest =
     endpointUrl +
@@ -107,12 +110,6 @@ export function useEncounters(patientUuid: string) {
   };
 }
 
-export const encounterRepresentation =
-  "custom:(uuid,encounterDatetime,encounterType,location:(uuid,name)," +
-  "patient:(uuid,display,age,person),encounterProviders:(uuid,display,provider:(uuid,name))," +
-  "obs:(uuid,display,obsDatetime,voided,groupMembers,concept:(uuid,display:(uuid,display)),value:(uuid,name:(uuid,name)," +
-  "names:(uuid,conceptNameType,name))),form:(uuid,name,display))";
-
 export function useInfiniteEncounters(patientUuid: string) {
   const [stopFetching, setStopFetching] = useState(false);
   const getKey = (pageIndex, previousPageData) => {
@@ -129,7 +126,7 @@ export function useInfiniteEncounters(patientUuid: string) {
       return null;
     }
 
-    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=${encounterRepresentation}&limit=${pageSize}&totalCount=true`;
+    let url = `${restBaseUrl}/encounter?patient=${patientUuid}&v=${encounterRepresentation}&order=desc&limit=${pageSize}`;
 
     if (pageIndex) {
       url += `&startIndex=${pageIndex * pageSize}`;
@@ -172,6 +169,22 @@ export function useInfiniteEncounters(patientUuid: string) {
   };
 }
 
+export function useEncounterObservations(encounterUuid: string) {
+  const { data, isLoading, error } = useSWR<
+    { data: { results: Array<Observation> } },
+    Error
+  >(
+    `${restBaseUrl}/obs?encounter=${encounterUuid}&v=custom:(uuid,display,obsDatetime,voided,groupMembers,concept:(uuid,display:(uuid,display))`,
+    openmrsFetch
+  );
+
+  return {
+    observations: data ? data?.data?.results : null,
+    isLoading,
+    error,
+  };
+}
+
 export function deleteEncounter(
   encounterUuid: string,
   abortController: AbortController
@@ -190,7 +203,9 @@ export const transformToMappedEncounter = (data) => {
     ...data,
     id: data.uuid,
     encounterType: data.encounterType?.display ?? "--",
-    provider: data.encounterProviders[0]?.display ?? "--",
+    provider: data?.encounterProviders
+      ? data?.encounterProviders[0]?.provider.name
+      : "--",
     formName: data.form?.display ?? "--",
     formUuid: data.form?.uuid,
     encounterDatetime: formatDatetime(parseDate(data?.encounterDatetime)),
