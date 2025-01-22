@@ -15,10 +15,7 @@ import AllEncounters from "./encounters/encounters.component";
 import PatientSummary from "./patient-summary/patient-summary.component";
 import CareAndTreatment from "./care-and-treatment/care-and-treatment.component";
 import versionTwoNavigationButton from "./app-menu-navigation/app-menu-navigation";
-import {
-  registerPostSubmissionAction,
-  getPostSubmissionActionById,
-} from "@openmrs/openmrs-form-engine-lib";
+import { registerPostSubmissionAction } from "@openmrs/openmrs-form-engine-lib";
 
 const moduleName = "@ohri/openmrs-esm-rwanda-app";
 
@@ -35,10 +32,7 @@ export const importTranslation = require.context(
 );
 
 export function startupApp() {
-  console.log("Initializing Rwanda ESM...");
   defineConfigSchema(moduleName, configSchema);
-
-  console.log("Registering BillingSubmissionAction...");
   registerPostSubmissionAction({
     name: "BillingSubmissionAction",
     load: () => import("./post-submission-handlers/billing-submission-action"),
