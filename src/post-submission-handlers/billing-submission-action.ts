@@ -2,7 +2,7 @@ import { type PostSubmissionAction } from "@openmrs/openmrs-form-engine-lib";
 import { openmrsFetch, showSnackbar, showToast } from "@openmrs/esm-framework";
 
 const BillingSubmissionAction: PostSubmissionAction = {
-  applyAction: async function ({ patient, encounters, sessionMode }, config) {
+  applyAction: async function ({ encounters, sessionMode }) {
     try {
       if (sessionMode !== "enter") {
         return true;
