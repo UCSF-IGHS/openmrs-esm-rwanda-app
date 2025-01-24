@@ -1,4 +1,4 @@
-import { type PostSubmissionAction } from "@openmrs/openmrs-form-engine-lib";
+import { type PostSubmissionAction } from "@openmrs/esm-form-engine-lib";
 import { openmrsFetch, showSnackbar, showToast } from "@openmrs/esm-framework";
 
 const BillingSubmissionAction: PostSubmissionAction = {
