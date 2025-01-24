@@ -15,7 +15,7 @@ import AllEncounters from "./encounters/encounters.component";
 import PatientSummary from "./patient-summary/patient-summary.component";
 import CareAndTreatment from "./care-and-treatment/care-and-treatment.component";
 import versionTwoNavigationButton from "./app-menu-navigation/app-menu-navigation";
-import { registerPostSubmissionAction } from "@openmrs/openmrs-form-engine-lib";
+import { registerPostSubmissionAction } from "@openmrs/esm-form-engine-lib";
 
 const moduleName = "@ohri/openmrs-esm-rwanda-app";
 
