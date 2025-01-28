@@ -56,12 +56,14 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
       - name: Bump Patch Version and Publish
+        shell: bash
         run: |
           echo "Bumping patch version for main branch..."
           git pull origin main
           yarn plugin import version
-          yarn version patch
-          echo "Version bumped to: $(node -p \"require('./package.json').version\")"
+          yarn version patch          
+          NEW_VERSION=$(node -p "require('./package.json').version")
+          echo "Version bumped to: $NEW_VERSION"
           git push origin main --tags
           echo "Publishing patch release to NPM..."
           yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
