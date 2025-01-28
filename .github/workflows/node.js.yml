@@ -60,9 +60,9 @@ jobs:
           echo "Bumping patch version for main branch..."
           git pull origin main
           yarn plugin import version
-          yarn version patch -d -m "chore: bump version to %s [skip ci]"
+          yarn version patch
           echo "Version bumped to: $(node -p \"require('./package.json').version\")"
-          git push --follow-tags
+          git push origin main --tags
           echo "Publishing patch release to NPM..."
           yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
           yarn npm publish --access public
