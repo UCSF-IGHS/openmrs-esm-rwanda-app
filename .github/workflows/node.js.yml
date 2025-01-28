@@ -61,9 +61,10 @@ jobs:
           echo "Bumping patch version for main branch..."
           git pull origin main
           yarn plugin import version
-          yarn version patch          
-          NEW_VERSION=$(node -p "require('./package.json').version")
+          yarn version patch
+          NEW_VERSION=$(node -p "require('./package.json').version")-pre.${{ github.run_number }}
           echo "Version bumped to: $NEW_VERSION"
+          yarn version $NEW_VERSION
           git push origin main --tags
           echo "Publishing patch release to NPM..."
           yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
