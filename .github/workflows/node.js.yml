@@ -60,7 +60,7 @@ jobs:
           echo "Bumping patch version for main branch..."
           git pull origin main
           yarn plugin import version
-          yarn version patch --message "chore: bump version to %s [skip ci]"
+          yarn version patch -d -m "chore: bump version to %s [skip ci]"
           echo "Version bumped to: $(node -p \"require('./package.json').version\")"
           git push --follow-tags
           echo "Publishing patch release to NPM..."
