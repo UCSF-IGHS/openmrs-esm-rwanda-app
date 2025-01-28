@@ -53,19 +53,19 @@ jobs:
       - run: yarn install --immutable
       - name: Git Config
         run: |
-          git config user.name "GitHub Actions Bot"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          - name: Bump Patch Version and Publish
-          run: |
-            echo "Bumping patch version for main branch..."
-            git pull origin main
-            yarn plugin import version
-            yarn version patch --message "chore: bump version to %s [skip ci]"
-            echo "Version bumped to: $(node -p \"require('./package.json').version\")"
-            git push --follow-tags
-            echo "Publishing patch release to NPM..."
-            yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
-            yarn npm publish --access public
+          git config --global user.name "GitHub Actions Bot"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Bump Patch Version and Publish
+        run: |
+          echo "Bumping patch version for main branch..."
+          git pull origin main
+          yarn plugin import version
+          yarn version patch --message "chore: bump version to %s [skip ci]"
+          echo "Version bumped to: $(node -p \"require('./package.json').version\")"
+          git push --follow-tags
+          echo "Publishing patch release to NPM..."
+          yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
+          yarn npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
