@@ -50,7 +50,7 @@
     "react-image-annotate": "^1.8.0"
   },
   "peerDependencies": {
-    "@openmrs/esm-framework": "5.x",
+    "@openmrs/esm-framework": "*",
     "react": "18.x",
     "react-i18next": "11.x",
     "react-router-dom": "6.x",
@@ -103,5 +103,5 @@
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4"
   },
-  "packageManager": "yarn@3.6.1"
+  "packageManager": "yarn@4.3.1"
 }
