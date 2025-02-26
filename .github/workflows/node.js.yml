@@ -41,10 +41,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -57,16 +53,10 @@ jobs:
       - name: Version
         run: |
           NEW_VERSION=$(node -p "require('./package.json').version")-pre.${{ github.run_number }}
-          yarn plugin import version
           yarn version $NEW_VERSION
 
       - name: Build
         run: yarn turbo run build --color --concurrency=5
-
-      - name: Git Config
-        run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Publish
         run: yarn config set npmAuthToken "${NODE_AUTH_TOKEN}" && yarn npm publish --access public --tag next
