@@ -51,7 +51,13 @@ jobs:
           node-version: "18.x"
           registry-url: "https://registry.npmjs.org"
 
-      - run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      - name: Version
+        run: |
+          NEW_VERSION=$(node -p "require('./package.json').version")-pre.${{ github.run_number }}
+          yarn version $NEW_VERSION
 
       - name: Build
         run: yarn turbo run build --color --concurrency=5
@@ -62,19 +68,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Bump Patch Version and Publish
-        shell: bash
-        run: |
-          echo "Bumping patch version for main branch..."
-          git pull origin main
-          yarn plugin import version
-          yarn version patch
-          NEW_VERSION=$(node -p "require('./package.json').version")-pre.${{ github.run_number }}
-          echo "Version bumped to: $NEW_VERSION"
-          yarn version $NEW_VERSION
-          git push origin main --tags
-          echo "Publishing patch release to NPM..."
-          yarn config set npmAuthToken "${NODE_AUTH_TOKEN}"
-          yarn npm publish --access public --tag next
+        run: yarn config set npmAuthToken "${NODE_AUTH_TOKEN}" && yarn npm publish --access public --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
