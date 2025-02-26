@@ -57,6 +57,7 @@ jobs:
       - name: Version
         run: |
           NEW_VERSION=$(node -p "require('./package.json').version")-pre.${{ github.run_number }}
+          yarn plugin import version
           yarn version $NEW_VERSION
 
       - name: Build
@@ -67,7 +68,7 @@ jobs:
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Bump Patch Version and Publish
+      - name: Publish
         run: yarn config set npmAuthToken "${NODE_AUTH_TOKEN}" && yarn npm publish --access public --tag next
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
