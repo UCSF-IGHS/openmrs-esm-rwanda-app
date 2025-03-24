@@ -3,6 +3,7 @@ export const dashboardMeta = {
   columns: 1,
   path: "Encounters",
   title: "Encounters",
+  icon: "omrs-icon-group",
 };
 
 export const hivPatientChartMeta = {
@@ -17,6 +18,7 @@ export const hivPatientSummaryDashboardMeta = {
   title: "Patient Summary",
   path: "hiv-patient-summary",
   layoutMode: "anchored",
+  icon: "",
 };
 
 export const hivPatientProgramDashboardMeta = {
@@ -25,4 +27,5 @@ export const hivPatientProgramDashboardMeta = {
   title: "Clinical Encounter",
   path: "hiv-program-management",
   layoutMode: "anchored",
+  icon: "",
 };
