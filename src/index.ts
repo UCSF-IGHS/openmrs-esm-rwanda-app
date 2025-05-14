@@ -15,6 +15,10 @@ import AllEncounters from "./encounters/encounters.component";
 import PatientSummary from "./patient-summary/patient-summary.component";
 import CareAndTreatment from "./care-and-treatment/care-and-treatment.component";
 import versionTwoNavigationButton from "./app-menu-navigation/app-menu-navigation";
+import createAppointmentNavigationButton from "./app-menu-navigation/create-appointment-navigation";
+import findAppointmentNavigationButton from "./app-menu-navigation/find-appointment-navigation";
+import pharmacyManagementNavigationButton from "./app-menu-navigation/pharmacy-management-navigation";
+import primaryCareNavigationButton from "./app-menu-navigation/primary-care-navigation";
 import { registerPostSubmissionAction } from "@openmrs/esm-form-engine-lib";
 
 const moduleName = "@ohri/openmrs-esm-rwanda-app";
@@ -79,5 +83,25 @@ export const hivProgramManagementSummary = getSyncLifecycle(
 
 export const versionTwoNavLink = getSyncLifecycle(
   versionTwoNavigationButton,
+  options
+);
+
+export const createAppointmentNavLink = getSyncLifecycle(
+  createAppointmentNavigationButton,
+  options
+);
+
+export const findAppointmentNavLink = getSyncLifecycle(
+  findAppointmentNavigationButton,
+  options
+);
+
+export const pharmacyManagementNavLink = getSyncLifecycle(
+  pharmacyManagementNavigationButton,
+  options
+);
+
+export const primaryCareNavLink = getSyncLifecycle(
+  primaryCareNavigationButton,
   options
 );
