@@ -76,6 +76,34 @@
       "component": "versionTwoNavLink",
       "online": true,
       "offline": true
+    },
+    {
+      "name": "create-appointment-link",
+      "slot": "app-menu-slot",
+      "component": "createAppointmentNavLink",
+      "online": true,
+      "offline": true
+    },
+    {
+      "name": "find-appointment-link",
+      "slot": "app-menu-slot",
+      "component": "findAppointmentNavLink",
+      "online": true,
+      "offline": true
+    },
+    {
+      "name": "pharmacy-management-link",
+      "slot": "app-menu-slot",
+      "component": "pharmacyManagementNavLink",
+      "online": true,
+      "offline": true
+    },
+    {
+      "name": "primary-care-link",
+      "slot": "app-menu-slot",
+      "component": "primaryCareNavLink",
+      "online": true,
+      "offline": true
     }
   ]
 }
