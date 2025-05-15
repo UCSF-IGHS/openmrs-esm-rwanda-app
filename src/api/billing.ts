@@ -2,12 +2,27 @@ import { openmrsFetch } from "@openmrs/esm-framework";
 import { ENDPOINTS, CONFIG } from "../constants";
 
 /**
+ * Interface for observation identifier
+ */
+export interface ObsIdentifier {
+  uuid: string;
+}
+
+/**
+ * Interface for the billing submission payload
+ */
+export interface BillingSubmissionPayload {
+  insurancePolicyNumber: string;
+  obs: Array<ObsIdentifier>;
+}
+
+/**
  * Submit billing information after form submission
  *
  * @param payload - The data to submit
  * @returns Response from the billing endpoint
  */
-export async function submitBillingData(payload: any) {
+export async function submitBillingData(payload: BillingSubmissionPayload) {
   return openmrsFetch(ENDPOINTS.AFTER_POST_SUBMISSION, {
     method: "POST",
     headers: {
@@ -88,15 +103,15 @@ export async function getInsurancePolicyNumber(
       const openGlobalBill = globalBills.find((bill) => bill.closed === false);
       const globalBill = openGlobalBill || globalBills[0];
 
-      if (globalBill.billIdentifier) {
-        const insuranceCardNo = globalBill.billIdentifier.split(/\d+/)[0];
-        if (insuranceCardNo) {
-          return insuranceCardNo;
-        }
-      }
-
       if (globalBill.admission?.insurancePolicy?.insuranceCardNo) {
         return globalBill.admission.insurancePolicy.insuranceCardNo;
+      }
+
+      if (globalBill.billIdentifier) {
+        const matches = globalBill.billIdentifier.match(/^([^\d]+)/);
+        if (matches && matches[1]) {
+          return matches[1];
+        }
       }
     }
   } catch (e) {
