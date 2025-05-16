@@ -1,21 +1,27 @@
-import { type PostSubmissionAction } from "@openmrs/esm-form-engine-lib";
+import {
+  type PostSubmissionAction,
+  type OpenmrsEncounter,
+} from "@openmrs/esm-form-engine-lib";
 import { showSnackbar, showToast } from "@openmrs/esm-framework";
 import { submitBillingData, getInsurancePolicyNumber } from "../api/billing";
 import { MESSAGES } from "../constants";
 
-function getPatientUuid(encounter: any): string {
+function getPatientUuid(encounter: OpenmrsEncounter): string {
   if (!encounter) {
     throw new Error(MESSAGES.ERROR.NO_ENCOUNTER);
   }
 
-  if (typeof encounter.patient === "string") {
-    return encounter.patient;
+  const patient = encounter.patient;
+
+  if (typeof patient === "string") {
+    return patient;
   } else if (
-    encounter.patient &&
-    typeof encounter.patient === "object" &&
-    "uuid" in encounter.patient
+    patient &&
+    typeof patient === "object" &&
+    "uuid" in patient &&
+    typeof patient.uuid === "string"
   ) {
-    return encounter.patient.uuid;
+    return patient.uuid;
   }
 
   throw new Error(MESSAGES.ERROR.NO_PATIENT);
@@ -34,7 +40,7 @@ const BillingSubmissionAction: PostSubmissionAction = {
 
       const payload = {
         insurancePolicyNumber,
-        obs: encounter.obs.map((ob) => ({
+        obs: (encounter.obs ?? []).map((ob) => ({
           uuid: ob.uuid,
         })),
       };
@@ -58,9 +64,11 @@ const BillingSubmissionAction: PostSubmissionAction = {
       }
 
       return true;
-    } catch (error) {
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error ? error.message : "Unknown error";
       showToast({
-        description: error.message || "Unknown error",
+        description: errorMessage,
         kind: "error",
       });
       return true;
