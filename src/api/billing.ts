@@ -106,13 +106,6 @@ export async function getInsurancePolicyNumber(
       if (globalBill.admission?.insurancePolicy?.insuranceCardNo) {
         return globalBill.admission.insurancePolicy.insuranceCardNo;
       }
-
-      if (globalBill.billIdentifier) {
-        const matches = globalBill.billIdentifier.match(/^([^\d]+)/);
-        if (matches && matches[1]) {
-          return matches[1];
-        }
-      }
     }
   } catch (e) {
     // Silently continue to next method
