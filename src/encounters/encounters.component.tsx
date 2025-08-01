@@ -28,12 +28,9 @@ import {
   isDesktop,
   showSnackbar,
   showModal,
+  launchWorkspace,
 } from "@openmrs/esm-framework";
-import {
-  ErrorState,
-  EmptyState,
-  launchPatientWorkspace,
-} from "@openmrs/esm-patient-common-lib";
+import { ErrorState, EmptyState } from "@openmrs/esm-patient-common-lib";
 
 import {
   transformToMappedEncounter,
@@ -287,7 +284,7 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
                                     "View this encounter"
                                   )}
                                   onClick={() => {
-                                    launchPatientWorkspace(
+                                    launchWorkspace(
                                       "patient-form-entry-workspace",
                                       {
                                         workspaceTitle:
@@ -316,7 +313,7 @@ const EncountersTable: React.FC<EncountersTableProps> = ({ patientUuid }) => {
                                   )}
                                   size={desktopLayout ? "sm" : "lg"}
                                   onClick={() => {
-                                    launchPatientWorkspace(
+                                    launchWorkspace(
                                       "patient-form-entry-workspace",
                                       {
                                         workspaceTitle:

@@ -1,25 +1,57 @@
-/**
- * @returns {Promise<import('jest').Config>}
- */
-module.exports = {
+/** @type {import('jest').Config} */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const path = require("path");
+
+const config = {
+  verbose: true,
+  collectCoverage: true,
+  coverageThreshold: {
+    global: {
+      statements: 0,
+      branches: 0,
+      functions: 0,
+      lines: 0,
+    },
+  },
+  coverageReporters: ["json-summary", "lcov"],
   collectCoverageFrom: [
     "**/src/**/*.component.tsx",
     "!**/node_modules/**",
+    "!**/vendor/**",
+    "!**/src/**/*.test.*",
     "!**/src/declarations.d.ts",
+    "!**/e2e/**",
   ],
   transform: {
-    "^.+\\.tsx?$": ["@swc/jest"],
+    "^.+\\.m?[jt]sx?$": ["@swc/jest"],
   },
-  transformIgnorePatterns: ["/node_modules/(?!@openmrs)"],
+  transformIgnorePatterns: ["/node_modules/(?!@openmrs|.+\\.pnp\\.[^\\/]+$)"],
+  moduleDirectories: ["node_modules", "__mocks__", "tools", __dirname],
   moduleNameMapper: {
-    "@openmrs/esm-framework": "@openmrs/esm-framework/mock",
     "\\.(s?css)$": "identity-obj-proxy",
-    "^lodash-es/(.*)$": "lodash/$1",
+    "@openmrs/esm-framework": "@openmrs/esm-framework/mock",
+    "^@carbon/charts-react$": path.resolve(
+      __dirname,
+      "__mocks__",
+      "@carbon__charts-react.ts"
+    ),
     "^dexie$": require.resolve("dexie"),
+    "^lodash-es/(.*)$": "lodash/$1",
+    "^lodash-es$": "lodash",
+    "^react-i18next$": path.resolve(__dirname, "__mocks__", "react-i18next.js"),
+    "^uuid$": path.resolve(
+      __dirname,
+      "node_modules",
+      "uuid",
+      "dist",
+      "index.js"
+    ),
   },
-  setupFilesAfterEnv: ["<rootDir>/src/setup-tests.ts"],
   testEnvironment: "jsdom",
-  testEnvironmentOptions: {
-    url: "http://localhost/",
-  },
+  testPathIgnorePatterns: [
+    path.resolve(__dirname, "node_modules"),
+    path.resolve(__dirname, "e2e"),
+  ],
 };
+
+module.exports = config;
