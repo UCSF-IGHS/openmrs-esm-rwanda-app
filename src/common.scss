@@ -1,18 +1,14 @@
-@use '@carbon/styles/scss/spacing';
-@use '@carbon/styles/scss/colors';
-@use '@carbon/styles/scss/type';
+@use '@carbon/layout';
+@use '@carbon/colors';
+@use '@carbon/type';
 @import "~@openmrs/esm-styleguide/src/vars";
 @import './root.scss';
-
-// .widgetContainer {
-//   background-color: $ui-background;
-// }
 
 .widgetHeaderContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: spacing.$spacing-04 0 spacing.$spacing-04 spacing.$spacing-05;
+  padding: layout.$spacing-04 0 layout.$spacing-04 layout.$spacing-05;
 }
 
 .widgetHeaderContainer>h4:after {
@@ -25,7 +21,7 @@
 
 .toggleButtons {
   width: fit-content;
-  margin: 0 spacing.$spacing-03;
+  margin: 0 layout.$spacing-03;
 }
 
 .tabContainer div[role='tabpanel'] {
@@ -47,7 +43,7 @@
 .cardTitle {
   display: flex;
   justify-content: space-between;
-  padding: spacing.$spacing-04 0 spacing.$spacing-04 spacing.$spacing-05;
+  padding: layout.$spacing-04 0 layout.$spacing-04 layout.$spacing-05;
 }
 
 .cardTitle>h4:after {

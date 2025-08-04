@@ -8,12 +8,6 @@
   ],
   "extensions": [
     {
-      "name": "clinical-views-divider",
-      "component": "clinicalViewsDivider",
-      "slot": "patient-chart-dashboard-slot",
-      "order": 15
-    },
-    {
       "name": "all-encounters",
       "component": "encountersDashboardLink",
       "slot": "patient-chart-dashboard-slot",
@@ -34,36 +28,9 @@
       "order": 13
     },
     {
-      "name": "hiv-program",
-      "slot": "patient-chart-dashboard-slot",
-      "component": "hivPatientChartDashboard"
-    },
-    {
-      "name": "hiv-patient-summary",
-      "slot": "hiv-patient-chart-slot",
-      "component": "hivPatientSummaryDashboardLink",
-      "meta": {
-        "slot": "hiv-patient-summary-slot",
-        "columns": 1,
-        "path": "hiv-patient-summary",
-        "layoutMode": "anchored"
-      }
-    },
-    {
       "name": "hiv-patient-summary-ext",
       "slot": "hiv-patient-summary-slot",
       "component": "hivPatientSummary"
-    },
-    {
-      "name": "hiv-patient-program",
-      "slot": "hiv-patient-chart-slot",
-      "component": "hivProgramManagementDashboardLink",
-      "meta": {
-        "slot": "hiv-patient-program-management-slot",
-        "columns": 1,
-        "path": "hiv-program-management",
-        "layoutMode": "anchored"
-      }
     },
     {
       "name": "hiv-patient-program-ext",

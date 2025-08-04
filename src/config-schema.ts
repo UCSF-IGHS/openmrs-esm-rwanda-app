@@ -34,7 +34,7 @@ export const configSchema = {
       criteriaConcept: "3ce6d5fc-26fe-102b-80cb-0017a47871b2",
       imageOrderedConcept: "3cd937e4-26fe-102b-80cb-0017a47871b2",
       oiConcept: "0ae23a5a-15f5-102d-96e4-000c29c2a5d7",
-      viralLoadConcept: "	3cd4a882-26fe-102b-80cb-0017a47871b2",
+      viralLoadConcept: "3cd4a882-26fe-102b-80cb-0017a47871b2",
       vlReasonConcept: "",
       lastCd4CountConcept: "3ceda710-26fe-102b-80cb-0017a47871b2",
       artCohortConcept: "",

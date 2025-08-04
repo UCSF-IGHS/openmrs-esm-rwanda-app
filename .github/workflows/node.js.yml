@@ -23,7 +23,9 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
+      - name: Clear Yarn Cache
+        run: rm -rf .yarn/cache
       - run: yarn install --immutable
       - run: yarn verify
       - run: yarn build
@@ -79,7 +81,7 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "18.x"
+          node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
       - run: yarn install --immutable
       - name: Publish Release Version
