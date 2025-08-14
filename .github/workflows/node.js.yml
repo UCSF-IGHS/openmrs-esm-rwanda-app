@@ -25,9 +25,18 @@ jobs:
         with:
           node-version: "22.x"
       - name: Clear Yarn Cache
-        run: rm -rf .yarn/cache
+        run: |
+          rm -rf .yarn/cache
+          rm -rf .yarn/install-state.gz
       - name: Install dependencies
-        run: yarn install --immutable || yarn install --refresh-lockfile
+        run: |
+          yarn install --immutable || {
+            echo "Immutable install failed, clearing cache and retrying..."
+            yarn cache clean
+            rm -rf .yarn/cache
+            rm -rf .yarn/install-state.gz
+            yarn install --refresh-lockfile
+          }
       - run: yarn verify
       - run: yarn build
       - name: Upload Artifacts
@@ -51,10 +60,19 @@ jobs:
           registry-url: "https://registry.npmjs.org"
 
       - name: Clear Yarn Cache
-        run: rm -rf .yarn/cache
+        run: |
+          rm -rf .yarn/cache
+          rm -rf .yarn/install-state.gz
 
       - name: Install dependencies
-        run: yarn install --immutable || yarn install --refresh-lockfile
+        run: |
+          yarn install --immutable || {
+            echo "Immutable install failed, clearing cache and retrying..."
+            yarn cache clean
+            rm -rf .yarn/cache
+            rm -rf .yarn/install-state.gz
+            yarn install --refresh-lockfile
+          }
 
       - name: Version
         run: |
@@ -88,9 +106,18 @@ jobs:
           node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
       - name: Clear Yarn Cache
-        run: rm -rf .yarn/cache
+        run: |
+          rm -rf .yarn/cache
+          rm -rf .yarn/install-state.gz
       - name: Install dependencies
-        run: yarn install --immutable || yarn install --refresh-lockfile
+        run: |
+          yarn install --immutable || {
+            echo "Immutable install failed, clearing cache and retrying..."
+            yarn cache clean
+            rm -rf .yarn/cache
+            rm -rf .yarn/install-state.gz
+            yarn install --refresh-lockfile
+          }
       - name: Publish Release Version
         run: |
           echo "Publishing release version..."
