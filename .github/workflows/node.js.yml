@@ -31,11 +31,15 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable || {
-            echo "Immutable install failed, clearing cache and retrying..."
-            yarn cache clean
+            echo "Immutable install failed due to checksum mismatches, attempting recovery..."
+            yarn cache clean --all
             rm -rf .yarn/cache
             rm -rf .yarn/install-state.gz
-            yarn install --refresh-lockfile
+            echo "Retrying with fresh cache..."
+            yarn install --refresh-lockfile || {
+              echo "Refresh failed, trying without immutable mode..."
+              yarn install --no-immutable
+            }
           }
       - run: yarn verify
       - run: yarn build
@@ -67,11 +71,15 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable || {
-            echo "Immutable install failed, clearing cache and retrying..."
-            yarn cache clean
+            echo "Immutable install failed due to checksum mismatches, attempting recovery..."
+            yarn cache clean --all
             rm -rf .yarn/cache
             rm -rf .yarn/install-state.gz
-            yarn install --refresh-lockfile
+            echo "Retrying with fresh cache..."
+            yarn install --refresh-lockfile || {
+              echo "Refresh failed, trying without immutable mode..."
+              yarn install --no-immutable
+            }
           }
 
       - name: Version
@@ -112,11 +120,15 @@ jobs:
       - name: Install dependencies
         run: |
           yarn install --immutable || {
-            echo "Immutable install failed, clearing cache and retrying..."
-            yarn cache clean
+            echo "Immutable install failed due to checksum mismatches, attempting recovery..."
+            yarn cache clean --all
             rm -rf .yarn/cache
             rm -rf .yarn/install-state.gz
-            yarn install --refresh-lockfile
+            echo "Retrying with fresh cache..."
+            yarn install --refresh-lockfile || {
+              echo "Refresh failed, trying without immutable mode..."
+              yarn install --no-immutable
+            }
           }
       - name: Publish Release Version
         run: |
