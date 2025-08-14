@@ -121,5 +121,5 @@
     "@types/d3-dispatch": "^3.0.6",
     "webpack": "5.99.9"
   },
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.3.1"
 }
