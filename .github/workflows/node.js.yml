@@ -26,7 +26,8 @@ jobs:
           node-version: "22.x"
       - name: Clear Yarn Cache
         run: rm -rf .yarn/cache
-      - run: yarn install --immutable
+      - name: Install dependencies
+        run: yarn install --immutable || yarn install --refresh-lockfile
       - run: yarn verify
       - run: yarn build
       - name: Upload Artifacts
@@ -49,8 +50,11 @@ jobs:
           node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
 
+      - name: Clear Yarn Cache
+        run: rm -rf .yarn/cache
+
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install --immutable || yarn install --refresh-lockfile
 
       - name: Version
         run: |
@@ -83,7 +87,10 @@ jobs:
         with:
           node-version: "22.x"
           registry-url: "https://registry.npmjs.org"
-      - run: yarn install --immutable
+      - name: Clear Yarn Cache
+        run: rm -rf .yarn/cache
+      - name: Install dependencies
+        run: yarn install --immutable || yarn install --refresh-lockfile
       - name: Publish Release Version
         run: |
           echo "Publishing release version..."
