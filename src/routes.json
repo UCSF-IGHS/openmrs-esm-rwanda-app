@@ -4,8 +4,7 @@
     "fhir2": ">=1.2.0",
     "webservices.rest": "^2.24.0"
   },
-  "pages": [
-  ],
+  "pages": [],
   "extensions": [
     {
       "name": "all-encounters",
