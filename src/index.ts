@@ -28,10 +28,10 @@ export const importTranslation = require.context(
 
 export function startupApp() {
   defineConfigSchema(moduleName, configSchema);
-  // registerPostSubmissionAction({
-  //   name: "BillingSubmissionAction",
-  //   load: () => import("./post-submission-handlers/billing-submission-action"),
-  // });
+  registerPostSubmissionAction({
+    name: "BillingSubmissionAction",
+    load: () => import("./post-submission-handlers/billing-submission-action"),
+  });
 }
 
 export const encountersDashboardLink = getSyncLifecycle(
